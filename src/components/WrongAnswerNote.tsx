@@ -17,9 +17,9 @@ interface WrongAnswerNoteProps {
 }
 
 const categoryMap: Record<string, { label: string; className: string }> = {
-  '맞춤법': { label: '맞춤법', className: 'wrong-item__category-badge--spelling' },
-  '띄어쓰기': { label: '띄어쓰기', className: 'wrong-item__category-badge--spacing' },
-  '문법': { label: '문법', className: 'wrong-item__category-badge--grammar' },
+  spelling: { label: '맞춤법', className: 'wrong-item__category-badge--spelling' },
+  spacing: { label: '띄어쓰기', className: 'wrong-item__category-badge--spacing' },
+  grammar: { label: '문법', className: 'wrong-item__category-badge--grammar' },
 };
 
 export default function WrongAnswerNote({ wrongAnswers, onClose }: WrongAnswerNoteProps) {

@@ -22,7 +22,7 @@ export interface Question {
 export interface Level {
   id: LevelId;
   label: string;
-  emoji: string;
+  icon: string;
   description: string;
   color: string;
   questions: Question[];
@@ -44,35 +44,35 @@ export const GRADES: Record<Grade, GradeInfo> = {
     title: '맞춤법 달인',
     minPercent: 90,
     description: '당신은 진정한 맞춤법 달인입니다!',
-    color: '#FFD700',
+    color: '#8B5CF6',
   },
   A: {
     label: 'A등급',
     title: '맞춤법 고수',
     minPercent: 80,
     description: '거의 완벽해요! 조금만 더 연습하면 달인!',
-    color: '#C0C0C0',
+    color: '#3B82F6',
   },
   B: {
     label: 'B등급',
     title: '맞춤법 중수',
     minPercent: 70,
     description: '꽤 잘하고 있어요. 헷갈리는 부분만 정리하면 됩니다.',
-    color: '#CD7F32',
+    color: '#10B981',
   },
   C: {
     label: 'C등급',
     title: '맞춤법 초보',
     minPercent: 60,
     description: '기본은 알고 있지만, 더 공부가 필요해요.',
-    color: '#87CEEB',
+    color: '#F59E0B',
   },
   D: {
     label: 'D등급',
     title: '맞춤법 입문자',
     minPercent: 0,
     description: '맞춤법 공부를 시작해 볼까요? 꾸준히 하면 늘어요!',
-    color: '#FF6B6B',
+    color: '#EF4444',
   },
 };
 
@@ -82,7 +82,7 @@ export const LEVELS: Level[] = [
   {
     id: 'beginner',
     label: '초급',
-    emoji: '\u{1F331}',
+    icon: 'ri-seedling-line',
     description: '한국인이 가장 많이 틀리는 기본 맞춤법',
     color: '#84CC16',
     questions: [
@@ -102,7 +102,7 @@ export const LEVELS: Level[] = [
   {
     id: 'intermediate',
     label: '중급',
-    emoji: '\u{1F33F}',
+    icon: 'ri-leaf-line',
     description: '자주 헷갈리는 중급 맞춤법',
     color: '#22C55E',
     questions: [
@@ -122,7 +122,7 @@ export const LEVELS: Level[] = [
   {
     id: 'advanced',
     label: '고급',
-    emoji: '\u{1F333}',
+    icon: 'ri-tree-line',
     description: '은근히 어려운 고급 맞춤법과 띄어쓰기',
     color: '#0EA5E9',
     questions: [
@@ -142,7 +142,7 @@ export const LEVELS: Level[] = [
   {
     id: 'expert',
     label: '전문가',
-    emoji: '\u{1F525}',
+    icon: 'ri-fire-line',
     description: '전문가도 헷갈리는 까다로운 맞춤법',
     color: '#F59E0B',
     questions: [
@@ -162,7 +162,7 @@ export const LEVELS: Level[] = [
   {
     id: 'master',
     label: '달인',
-    emoji: '\u{1F3C6}',
+    icon: 'ri-vip-crown-2-fill',
     description: '어원과 한자어까지 꿰뚫는 최고 난이도',
     color: '#8B5CF6',
     questions: [

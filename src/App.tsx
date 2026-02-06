@@ -204,8 +204,8 @@ export default function App() {
     string,
     { label: string; title: string; color: string; description: string }
   > = {};
-  for (const grade of Object.values(GRADES)) {
-    gradeInfo[grade.label] = {
+  for (const [key, grade] of Object.entries(GRADES)) {
+    gradeInfo[key] = {
       label: grade.label,
       title: grade.title,
       color: grade.color,
@@ -217,7 +217,7 @@ export default function App() {
   const levelsForReport = LEVELS.map((l) => ({
     id: l.id,
     label: l.label,
-    emoji: l.emoji,
+    icon: l.icon,
     color: l.color,
   }));
 
@@ -237,7 +237,7 @@ export default function App() {
           level={{
             id: currentLevel.id,
             label: currentLevel.label,
-            emoji: currentLevel.emoji,
+            icon: currentLevel.icon,
             color: currentLevel.color,
           }}
           questions={currentQuestions}
@@ -248,7 +248,7 @@ export default function App() {
 
       {screen === 'result' && currentLevel && gradeResult && (
         <ResultScreen
-          level={{ label: currentLevel.label, emoji: currentLevel.emoji }}
+          level={{ label: currentLevel.label, icon: currentLevel.icon }}
           score={score}
           total={total}
           grade={{

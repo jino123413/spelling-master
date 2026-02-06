@@ -12,7 +12,7 @@ interface Question {
 }
 
 interface QuizScreenProps {
-  level: { id: string; label: string; emoji: string; color: string };
+  level: { id: string; label: string; icon: string; color: string };
   questions: Question[];
   onComplete: (results: { questionId: string; selectedIndex: number; isCorrect: boolean }[]) => void;
   onExit: () => void;
@@ -142,7 +142,7 @@ export default function QuizScreen({
           <i className="ri-arrow-left-line" />
         </button>
         <div className="quiz-header__title">
-          <span className="quiz-header__emoji">{level.emoji}</span>
+          <span className="quiz-header__emoji"><i className={level.icon} /></span>
           <span>{level.label}</span>
         </div>
         <span className="quiz-header__progress">

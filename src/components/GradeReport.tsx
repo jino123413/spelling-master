@@ -12,7 +12,7 @@ interface GradeReportProps {
     string,
     { played: number; bestScore: number; bestGrade: string }
   >;
-  levels: Array<{ id: string; label: string; emoji: string; color: string }>;
+  levels: Array<{ id: string; label: string; icon: string; color: string }>;
   gradeInfo: Record<
     string,
     { label: string; title: string; color: string; description: string }
@@ -95,7 +95,7 @@ export default function GradeReport({
               return (
                 <li className="level-stat-row" key={level.id}>
                   <div className="level-stat-row__left">
-                    <span className="level-stat-row__emoji">{level.emoji}</span>
+                    <span className="level-stat-row__emoji"><i className={level.icon} /></span>
                     <span className="level-stat-row__name">{level.label}</span>
                   </div>
                   <div className="level-stat-row__center">

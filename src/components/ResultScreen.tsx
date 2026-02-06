@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 interface ResultScreenProps {
-  level: { label: string; emoji: string };
+  level: { label: string; icon: string };
   score: number;
   total: number;
   grade: { label: string; title: string; description: string; color: string };
@@ -66,7 +66,7 @@ export default function ResultScreen({
     <div className="result-screen">
       <div className="result-screen__top">
         <div className="result-level-tag">
-          <span>{level.emoji}</span>
+          <i className={level.icon} />
           <span>{level.label}</span>
         </div>
 

@@ -11,18 +11,18 @@ interface HomeScreenProps {
 
 interface LevelInfo {
   id: string;
-  emoji: string;
+  icon: string;
   label: string;
   description: string;
   color: string;
 }
 
 const LEVELS: LevelInfo[] = [
-  { id: 'beginner', emoji: '🌱', label: '초급', description: '자주 틀리는 기초 맞춤법', color: '#10B981' },
-  { id: 'intermediate', emoji: '🌿', label: '중급', description: '헷갈리기 쉬운 띄어쓰기', color: '#3B82F6' },
-  { id: 'advanced', emoji: '🌳', label: '고급', description: '까다로운 문법과 표현', color: '#8B5CF6' },
-  { id: 'expert', emoji: '🔥', label: '전문가', description: '전문가도 틀리는 맞춤법', color: '#EF4444' },
-  { id: 'master', emoji: '👑', label: '달인', description: '맞춤법 달인 최종 도전', color: '#F59E0B' },
+  { id: 'beginner', icon: 'ri-seedling-line', label: '초급', description: '자주 틀리는 기초 맞춤법', color: '#10B981' },
+  { id: 'intermediate', icon: 'ri-leaf-line', label: '중급', description: '헷갈리기 쉬운 띄어쓰기', color: '#3B82F6' },
+  { id: 'advanced', icon: 'ri-tree-line', label: '고급', description: '까다로운 문법과 표현', color: '#8B5CF6' },
+  { id: 'expert', icon: 'ri-fire-line', label: '전문가', description: '전문가도 틀리는 맞춤법', color: '#EF4444' },
+  { id: 'master', icon: 'ri-vip-crown-2-fill', label: '달인', description: '맞춤법 달인 최종 도전', color: '#F59E0B' },
 ];
 
 function getGradeBadgeClass(grade: string): string {
@@ -53,7 +53,7 @@ export default function HomeScreen({
   return (
     <div className="home-screen">
       <header className="home-header">
-        <div className="home-header__emoji">📝</div>
+        <div className="home-header__emoji"><i className="ri-quill-pen-line" /></div>
         <h1 className="home-header__title">맞춤법 달인</h1>
         <p className="home-header__subtitle">나의 맞춤법 실력은?</p>
       </header>
@@ -77,7 +77,7 @@ export default function HomeScreen({
 
               <div className="home-level-card__content">
                 <div className="home-level-card__top">
-                  <span className="home-level-card__emoji">{level.emoji}</span>
+                  <span className="home-level-card__emoji"><i className={level.icon} /></span>
                   <div className="home-level-card__info">
                     <span className="home-level-card__label">{level.label}</span>
                     <span className="home-level-card__description">{level.description}</span>

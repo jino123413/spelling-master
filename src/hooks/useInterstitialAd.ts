@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState, useEffect } from 'react';
 import { GoogleAdMob } from '@apps-in-toss/web-framework';
 
-const AD_GROUP_ID = 'ait.v2.live.979576ca21a94432';
+const AD_GROUP_ID = 'ait.v2.live.bcf65121bf644b86';
 
 interface InterstitialAdCallback {
   onDismiss?: () => void;

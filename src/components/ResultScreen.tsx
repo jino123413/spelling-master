@@ -81,7 +81,7 @@ export default function ResultScreen({
             className="result-grade__badge"
             style={{ backgroundColor: grade.color }}
           >
-            <span className="result-grade__label">{grade.label}</span>
+            <span className="result-grade__label">{grade.label.charAt(0)}</span>
           </div>
           <h2 className="result-grade__title">{grade.title}</h2>
           <p className="result-grade__description">{grade.description}</p>

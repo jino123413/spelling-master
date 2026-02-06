@@ -6,7 +6,6 @@ interface HomeScreenProps {
   onSelectLevel: (levelId: LevelId) => void;
   onViewGradeReport: () => void;
   levelStats: Record<string, { played: number; bestScore: number; bestGrade: string }>;
-  unlockedLevels: string[];
 }
 
 interface LevelInfo {
@@ -40,13 +39,8 @@ export default function HomeScreen({
   onSelectLevel,
   onViewGradeReport,
   levelStats,
-  unlockedLevels,
 }: HomeScreenProps) {
-  const isUnlocked = (levelId: string) =>
-    levelId === 'beginner' || unlockedLevels.includes(levelId);
-
   const handleCardClick = (level: LevelInfo) => {
-    // Always call onSelectLevel - the parent (App) handles ad-gating for locked levels
     onSelectLevel(level.id);
   };
 
@@ -60,13 +54,12 @@ export default function HomeScreen({
 
       <div className="home-level-list">
         {LEVELS.map((level) => {
-          const unlocked = isUnlocked(level.id);
           const stats = levelStats[level.id];
 
           return (
             <button
               key={level.id}
-              className={`home-level-card ${!unlocked ? 'home-level-card--locked' : ''}`}
+              className="home-level-card"
               onClick={() => handleCardClick(level)}
               type="button"
             >
@@ -97,17 +90,12 @@ export default function HomeScreen({
                         {stats.played}회
                       </span>
                     </>
-                  ) : unlocked ? (
+                  ) : (
                     <span className="home-level-card__new-badge">NEW</span>
-                  ) : null}
+                  )}
                 </div>
               </div>
 
-              {!unlocked && (
-                <div className="home-level-card__lock-overlay">
-                  <i className="ri-lock-line" />
-                </div>
-              )}
             </button>
           );
         })}

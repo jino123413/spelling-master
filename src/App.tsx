@@ -90,27 +90,12 @@ export default function App() {
     [shuffleQuestions],
   );
 
-  // Handle level selection from HomeScreen
+  // Handle level selection from HomeScreen (all levels freely accessible)
   const handleSelectLevel = useCallback(
     (levelId: LevelId) => {
-      const isUnlocked =
-        levelId === 'beginner' ||
-        (storageData?.unlockedLevels ?? []).includes(levelId);
-
-      if (isUnlocked) {
-        // Already unlocked: start quiz directly (FREE)
-        startQuiz(levelId);
-      } else {
-        // Locked: show ad to unlock, persist unlock, then start quiz
-        const adKey = `unlock-${levelId}`;
-        tryWithAd(adKey, () => {
-          storage.unlockLevel(levelId);
-          refreshStorage();
-          startQuiz(levelId);
-        });
-      }
+      startQuiz(levelId);
     },
-    [storageData, startQuiz, tryWithAd, refreshStorage],
+    [startQuiz],
   );
 
   // Handle quiz completion
@@ -174,7 +159,6 @@ export default function App() {
   }, [tryWithAd]);
 
   // Derive data for components from storage
-  const unlockedLevels = storageData?.unlockedLevels ?? [];
   const levelStats = storageData?.levelStats ?? {};
 
   // Build current level info object for child components
@@ -228,7 +212,6 @@ export default function App() {
           onSelectLevel={handleSelectLevel}
           onViewGradeReport={handleViewGradeReport}
           levelStats={levelStats}
-          unlockedLevels={unlockedLevels}
         />
       )}
 

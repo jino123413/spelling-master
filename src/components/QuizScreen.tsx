@@ -134,12 +134,11 @@ export default function QuizScreen({
     <div className="quiz-screen">
       <header className="quiz-header">
         <button
-          className="quiz-header__back"
+          className="quiz-header__home"
           onClick={onExit}
           type="button"
-          aria-label="뒤로가기"
         >
-          <i className="ri-arrow-left-line" />
+          홈으로
         </button>
         <div className="quiz-header__title">
           <span className="quiz-header__emoji"><i className={level.icon} /></span>

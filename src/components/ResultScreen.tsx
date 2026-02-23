@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import BannerAd from './BannerAd';
 
 interface ResultScreenProps {
   level: { label: string; icon: string };
@@ -157,6 +158,11 @@ export default function ResultScreen({
             </span>
           </button>
         </div>
+      </div>
+
+      {/* Banner Ad - shown after results, not on core quiz interaction */}
+      <div style={{ marginTop: 24 }}>
+        <BannerAd adGroupId="ait.v2.live.171459c0b53d42a2" />
       </div>
     </div>
   );
